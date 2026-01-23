@@ -1,11 +1,18 @@
+import destMaldives from "@/assets/dest-maldives.jpg";
+import destThailand from "@/assets/dest-thailand.jpg";
+import destIndonesia from "@/assets/dest-indonesia.jpg";
+import destEgypt from "@/assets/dest-egypt.jpg";
+import destAustralia from "@/assets/dest-australia.jpg";
+import destMexico from "@/assets/dest-mexico.jpg";
+
 const CareerDestinations = () => {
   const destinations = [
-    { country: "Maldives", flag: "🇲🇻", description: "Luxury resort diving" },
-    { country: "Thailand", flag: "🇹🇭", description: "Koh Tao, Phuket" },
-    { country: "Indonesia", flag: "🇮🇩", description: "Bali, Komodo" },
-    { country: "Egypt", flag: "🇪🇬", description: "Red Sea diving" },
-    { country: "Australia", flag: "🇦🇺", description: "Great Barrier Reef" },
-    { country: "Mexico", flag: "🇲🇽", description: "Cenotes, Cozumel" },
+    { country: "Maldives", flag: "🇲🇻", description: "Luxury resort diving", image: destMaldives },
+    { country: "Thailand", flag: "🇹🇭", description: "Koh Tao, Phuket", image: destThailand },
+    { country: "Indonesia", flag: "🇮🇩", description: "Bali, Komodo", image: destIndonesia },
+    { country: "Egypt", flag: "🇪🇬", description: "Red Sea diving", image: destEgypt },
+    { country: "Australia", flag: "🇦🇺", description: "Great Barrier Reef", image: destAustralia },
+    { country: "Mexico", flag: "🇲🇽", description: "Cenotes, Cozumel", image: destMexico },
   ];
 
   return (
@@ -24,11 +31,24 @@ const CareerDestinations = () => {
           {destinations.map((dest, index) => (
             <div 
               key={index} 
-              className="bg-card rounded-2xl p-6 text-center border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+              className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
             >
-              <span className="text-5xl mb-3 block group-hover:scale-110 transition-transform">{dest.flag}</span>
-              <h3 className="font-display text-lg font-bold text-foreground mb-1">{dest.country}</h3>
-              <p className="text-sm text-muted-foreground">{dest.description}</p>
+              {/* Background image */}
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={dest.image}
+                  alt={`Diving in ${dest.country}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+              </div>
+              {/* Content overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                <span className="text-2xl mb-1 block">{dest.flag}</span>
+                <h3 className="font-display text-sm font-bold text-white mb-0.5">{dest.country}</h3>
+                <p className="text-xs text-white/80">{dest.description}</p>
+              </div>
             </div>
           ))}
         </div>

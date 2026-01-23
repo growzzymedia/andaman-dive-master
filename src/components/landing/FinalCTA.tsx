@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowRight } from "lucide-react";
+import ctaImage from "@/assets/cta-underwater.jpg";
 
 const FinalCTA = () => {
   const scrollToForm = () => {
@@ -11,13 +12,25 @@ const FinalCTA = () => {
       <div className="container px-4">
         <div 
           className="max-w-4xl mx-auto rounded-3xl p-8 md:p-16 text-center relative overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, hsl(200 100% 36%) 0%, hsl(210 100% 18%) 100%)"
-          }}
         >
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={ctaImage}
+              alt="Scuba diver swimming toward sunlight"
+              className="w-full h-full object-cover"
+            />
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: "linear-gradient(135deg, rgba(0,90,140,0.85) 0%, rgba(0,50,80,0.9) 100%)"
+              }}
+            />
+          </div>
+
           {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 z-[1]" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2 z-[1]" />
 
           <div className="relative z-10">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">

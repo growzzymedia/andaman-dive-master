@@ -1,4 +1,8 @@
 import { Clock, GraduationCap, MapPin, Globe, Waves } from "lucide-react";
+import phaseOpenwater from "@/assets/phase-openwater.jpg";
+import phaseAdvanced from "@/assets/phase-advanced.jpg";
+import phaseRescue from "@/assets/phase-rescue.jpg";
+import phaseDivemaster from "@/assets/phase-divemaster.jpg";
 
 const CourseTimeline = () => {
   const phases = [
@@ -8,6 +12,7 @@ const CourseTimeline = () => {
       duration: "3-4 days",
       description: "Your first certification - learn the fundamentals of scuba diving",
       color: "bg-primary",
+      image: phaseOpenwater,
     },
     {
       phase: 2,
@@ -15,6 +20,7 @@ const CourseTimeline = () => {
       duration: "2-3 days",
       description: "Deep dives & specialty skills - navigation, night diving, and more",
       color: "bg-primary/80",
+      image: phaseAdvanced,
     },
     {
       phase: 3,
@@ -22,6 +28,7 @@ const CourseTimeline = () => {
       duration: "3-4 days",
       description: "Emergency response & problem-solving underwater",
       color: "bg-primary/60",
+      image: phaseRescue,
     },
     {
       phase: 4,
@@ -29,6 +36,7 @@ const CourseTimeline = () => {
       duration: "4-6 weeks",
       description: "Lead dives, assist instructors & become a certified professional",
       color: "bg-accent",
+      image: phaseDivemaster,
     },
   ];
 
@@ -67,13 +75,24 @@ const CourseTimeline = () => {
 
                 {/* Content card */}
                 <div className={`ml-24 md:ml-0 md:w-5/12 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-                  <div className="bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-sm font-semibold text-primary">Phase {phase.phase}</span>
-                      <span className="text-sm text-muted-foreground">• {phase.duration}</span>
+                  <div className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border hover:shadow-xl transition-shadow">
+                    {/* Phase image */}
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={phase.image}
+                        alt={phase.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
                     </div>
-                    <h3 className="font-display text-xl font-bold text-foreground mb-2">{phase.title}</h3>
-                    <p className="text-muted-foreground">{phase.description}</p>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-sm font-semibold text-primary">Phase {phase.phase}</span>
+                        <span className="text-sm text-muted-foreground">• {phase.duration}</span>
+                      </div>
+                      <h3 className="font-display text-xl font-bold text-foreground mb-2">{phase.title}</h3>
+                      <p className="text-muted-foreground">{phase.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>
