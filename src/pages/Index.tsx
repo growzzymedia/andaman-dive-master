@@ -1,4 +1,5 @@
 import HeroSection from "@/components/landing/HeroSection";
+import ImageGallery from "@/components/landing/ImageGallery";
 import QualificationSection from "@/components/landing/QualificationSection";
 import CourseTimeline from "@/components/landing/CourseTimeline";
 import SkillsSection from "@/components/landing/SkillsSection";
@@ -16,6 +17,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <HeroSection />
+      <ImageGallery />
       <QualificationSection />
       <CourseTimeline />
       <SkillsSection />

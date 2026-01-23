@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, TrendingUp, Globe, ChevronDown } from "lucide-react";
+import heroImage from "@/assets/hero-diving.jpg";
 
 const HeroSection = () => {
   const scrollToForm = () => {
@@ -13,16 +14,23 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          background: "linear-gradient(180deg, hsl(210 100% 8%) 0%, hsl(200 100% 20%) 40%, hsl(180 60% 35%) 100%)"
-        }}
-      />
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroImage}
+          alt="Scuba diver underwater in crystal clear ocean"
+          className="w-full h-full object-cover"
+        />
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(180deg, rgba(0,30,60,0.7) 0%, rgba(0,60,100,0.5) 40%, rgba(0,80,120,0.6) 100%)"
+          }}
+        />
+      </div>
       
       {/* Animated bubbles/particles effect */}
-      <div className="absolute inset-0 z-0 opacity-20">
+      <div className="absolute inset-0 z-0 opacity-30">
         <div className="absolute w-4 h-4 bg-white/30 rounded-full top-1/4 left-1/4 animate-pulse" />
         <div className="absolute w-6 h-6 bg-white/20 rounded-full top-1/3 right-1/3 animate-pulse delay-300" />
         <div className="absolute w-3 h-3 bg-white/40 rounded-full bottom-1/4 left-1/3 animate-pulse delay-500" />

@@ -1,4 +1,7 @@
 import { Star, Quote } from "lucide-react";
+import testimonialRahul from "@/assets/testimonial-rahul.jpg";
+import testimonialPriya from "@/assets/testimonial-priya.jpg";
+import testimonialArjun from "@/assets/testimonial-arjun.jpg";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -8,6 +11,7 @@ const TestimonialsSection = () => {
       before: "IT Professional, Bangalore",
       quote: "Best decision of my life. I went from coding in a cubicle to diving in the Maldives. The training was intense but the placement support was incredible.",
       rating: 5,
+      image: testimonialRahul,
     },
     {
       name: "Priya Menon",
@@ -15,6 +19,7 @@ const TestimonialsSection = () => {
       before: "Marketing Executive, Mumbai",
       quote: "The Zero to Hero program changed everything. Within 2 months of completing my Divemaster, I was working in Koh Tao. Now I'm an instructor!",
       rating: 5,
+      image: testimonialPriya,
     },
     {
       name: "Arjun Patel",
@@ -22,6 +27,7 @@ const TestimonialsSection = () => {
       before: "Fresh Graduate, Delhi",
       quote: "I came here right after college not knowing what to do with my life. Now I have a career I love, in paradise. The instructors here are world-class.",
       rating: 5,
+      image: testimonialArjun,
     },
   ];
 
@@ -54,10 +60,12 @@ const TestimonialsSection = () => {
               
               <div className="border-t border-border pt-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="font-display font-bold text-primary">
-                      {testimonial.name.split(" ").map(n => n[0]).join("")}
-                    </span>
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <p className="font-display font-bold text-foreground">{testimonial.name}</p>
