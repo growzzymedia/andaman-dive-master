@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, TrendingUp, Globe, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-diving.jpg";
+import logoWhite from "@/assets/logo-white.png";
+import CountdownTimer from "./CountdownTimer";
 
 const HeroSection = () => {
   const scrollToForm = () => {
@@ -39,6 +41,15 @@ const HeroSection = () => {
 
       <div className="container relative z-10 px-4 py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Brand Logo */}
+          <div className="mb-6 animate-fade-in">
+            <img 
+              src={logoWhite} 
+              alt="ScubaDiveIn Logo" 
+              className="h-20 md:h-28 mx-auto drop-shadow-lg"
+            />
+          </div>
+
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-8 animate-fade-in">
             <Badge variant="secondary" className="bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2">
@@ -88,8 +99,13 @@ const HeroSection = () => {
             </Button>
           </div>
 
+          {/* Urgency countdown timer */}
+          <div className="animate-fade-in mb-8" style={{ animationDelay: "0.8s" }}>
+            <CountdownTimer />
+          </div>
+
           {/* Scroll indicator */}
-          <div className="animate-bounce mt-8">
+          <div className="animate-bounce mt-4">
             <ChevronDown className="w-8 h-8 text-white/60 mx-auto" />
           </div>
         </div>

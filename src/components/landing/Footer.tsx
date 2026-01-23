@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
+import logoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
   return (
@@ -7,7 +8,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {/* Brand */}
           <div>
-            <h3 className="font-display text-2xl font-bold text-white mb-4">ScubaDiveIn</h3>
+            <img 
+              src={logoWhite} 
+              alt="ScubaDiveIn Logo" 
+              className="h-16 mb-4"
+            />
             <p className="text-secondary-foreground/70 mb-4">
               Andaman's premier PADI 5-Star dive center. Transforming passionate divers into certified professionals since 2010.
             </p>
