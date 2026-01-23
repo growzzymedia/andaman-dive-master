@@ -16,6 +16,15 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Top Left Logo */}
+      <div className="absolute top-4 left-4 md:top-6 md:left-8 z-20 animate-fade-in">
+        <img 
+          src={logoMain} 
+          alt="ScubaDiveIn Logo" 
+          className="h-14 md:h-20 drop-shadow-2xl"
+        />
+      </div>
+
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -48,15 +57,6 @@ const HeroSection = () => {
               <span className="font-display font-bold text-lg md:text-xl tracking-wide">PADI 5-Star Dive Center</span>
               <Award className="w-6 h-6" />
             </div>
-          </div>
-
-          {/* Brand Logo */}
-          <div className="mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            <img 
-              src={logoMain} 
-              alt="ScubaDiveIn Logo" 
-              className="h-24 md:h-32 mx-auto drop-shadow-2xl"
-            />
           </div>
 
           {/* Trust badges */}
