@@ -57,7 +57,7 @@ const FinalCTA = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white/10 font-display font-semibold px-8 py-6 rounded-full"
+                  className="border-2 border-white bg-white/20 text-white hover:bg-white/30 font-display font-bold px-8 py-6 rounded-full shadow-lg"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Talk to Course Advisor

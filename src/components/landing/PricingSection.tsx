@@ -5,10 +5,11 @@ const PricingSection = () => {
   const plans = [
     {
       name: "One-Time Payment",
-      total: "₹2,00,000",
-      structure: "Pay 2 weeks before start",
+      total: "₹2,36,000",
+      structure: "Pay in full (incl. 18% GST)",
       popular: false,
       savings: "Best Value",
+      gstNote: "incl. GST",
     },
     {
       name: "2 Months Plan",
@@ -16,6 +17,7 @@ const PricingSection = () => {
       structure: "₹1,10,000 × 2 installments",
       popular: true,
       savings: null,
+      gstNote: "excl. GST",
     },
     {
       name: "3 Months Plan",
@@ -23,6 +25,7 @@ const PricingSection = () => {
       structure: "₹80,000 × 3 installments",
       popular: false,
       savings: null,
+      gstNote: "excl. GST",
     },
     {
       name: "6 Months Plan",
@@ -30,6 +33,7 @@ const PricingSection = () => {
       structure: "₹45,000 × 6 installments",
       popular: false,
       savings: "Most Flexible",
+      gstNote: "excl. GST",
     },
   ];
 
@@ -79,7 +83,8 @@ const PricingSection = () => {
               )}
               
               <h3 className="font-display text-lg font-bold text-foreground mb-2 mt-2">{plan.name}</h3>
-              <p className="font-display text-3xl font-bold text-primary mb-2">{plan.total}</p>
+              <p className="font-display text-3xl font-bold text-primary mb-1">{plan.total}</p>
+              <p className="text-xs text-muted-foreground mb-1">({plan.gstNote})</p>
               <p className="text-sm text-muted-foreground mb-4">{plan.structure}</p>
               
               <Button 
@@ -108,7 +113,7 @@ const PricingSection = () => {
             ))}
           </div>
           <p className="text-center text-sm text-muted-foreground mt-6">
-            All prices + 18% GST | Zero to Hero Package: ₹2,36,000 (incl. GST)
+            <strong>One-time payment:</strong> ₹2,36,000 (incl. 18% GST) | <strong>EMI plans:</strong> Prices shown + 18% GST applicable
           </p>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, TrendingUp, Globe, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-diving.jpg";
-import logoWhite from "@/assets/logo-white.png";
+import logoMain from "@/assets/logo-main.png";
 import CountdownTimer from "./CountdownTimer";
 
 const HeroSection = () => {
@@ -41,26 +41,31 @@ const HeroSection = () => {
 
       <div className="container relative z-10 px-4 py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Brand Logo */}
+          {/* PADI Certified Banner - Most Prominent */}
           <div className="mb-6 animate-fade-in">
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-400 text-black px-6 py-3 rounded-full shadow-lg">
+              <Award className="w-6 h-6" />
+              <span className="font-display font-bold text-lg md:text-xl tracking-wide">PADI 5-Star Dive Center</span>
+              <Award className="w-6 h-6" />
+            </div>
+          </div>
+
+          {/* Brand Logo */}
+          <div className="mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <img 
-              src={logoWhite} 
+              src={logoMain} 
               alt="ScubaDiveIn Logo" 
-              className="h-20 md:h-28 mx-auto drop-shadow-lg"
+              className="h-24 md:h-32 mx-auto drop-shadow-2xl"
             />
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-8 animate-fade-in">
-            <Badge variant="secondary" className="bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2">
-              <Award className="w-4 h-4 mr-2" />
-              PADI Certified
-            </Badge>
-            <Badge variant="secondary" className="bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-8 animate-fade-in" style={{ animationDelay: "0.15s" }}>
+            <Badge variant="secondary" className="bg-white/15 text-white border-white/30 backdrop-blur-sm px-4 py-2 text-sm">
               <TrendingUp className="w-4 h-4 mr-2" />
               95% Placement Rate
             </Badge>
-            <Badge variant="secondary" className="bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2">
+            <Badge variant="secondary" className="bg-white/15 text-white border-white/30 backdrop-blur-sm px-4 py-2 text-sm">
               <Globe className="w-4 h-4 mr-2" />
               International License
             </Badge>
@@ -93,7 +98,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg"
               onClick={scrollToProgram}
-              className="border-white/30 text-white hover:bg-white/10 font-display font-semibold px-8 py-6 rounded-full backdrop-blur-sm"
+              className="border-2 border-white bg-white/20 text-white hover:bg-white/30 font-display font-bold px-8 py-6 rounded-full backdrop-blur-sm shadow-lg"
             >
               Explore Zero to Hero Program
             </Button>
