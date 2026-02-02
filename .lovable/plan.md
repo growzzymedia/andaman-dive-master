@@ -1,111 +1,70 @@
 
-# Updates Based on Client Insights & Zero to Hero Package Document
+
+# Button Visibility & Em-Dash Removal Updates
 
 ## Overview
-This plan addresses the client's feedback to update pricing with a strikethrough discount effect and correct the Rescue Diver phase to include Emergency First Response (EFR) information.
+This plan addresses two issues: (1) making the transparent buttons more visible and clickable, and (2) removing em-dashes from all page content.
 
 ---
 
-## 1. Pricing Section Updates
+## 1. Button Visibility Improvements
 
-### Current State
-The pricing shows:
-- One-Time: ₹2,36,000 (incl. GST)
-- 2 Months: ₹2,20,000 (excl. GST)
-- 3 Months: ₹2,40,000 (excl. GST)
-- 6 Months: ₹2,70,000 (excl. GST)
+### Current Issues
+The following buttons are too transparent and hard to read:
+- **"Explore Zero to Hero Program"** button in Hero section
+- **"Talk to Course Advisor"** button in Final CTA section
 
-### Changes Based on PDF Document
+### Proposed Changes
 
-| Plan | Updated Price | Structure | GST Note |
-|------|---------------|-----------|----------|
-| One-Time | ~~₹2,50,000~~ → ₹2,36,000 | Pay in full | Incl. GST |
-| 2 Months | ₹2,75,000 | ₹1,37,500 × 2 | Incl. GST |
-| 3 Months | ₹3,00,000 | ₹1,00,000 × 3 | Incl. GST |
-| 6 Months | ₹3,36,000 | ₹56,000 × 6 | Incl. GST |
+#### Hero Section - "Explore Zero to Hero Program" Button
+**Current styling:**
+```
+border-2 border-white bg-white/20 text-white hover:bg-white/30
+```
 
-### Visual Changes
-- Add strikethrough styling on ₹2,50,000 for one-time payment
-- Show ₹2,36,000 as the discounted price in green/accent color
-- Update all EMI plans to show "incl. GST" (per PDF - all installments include GST)
-- Update footer note accordingly
+**New styling - solid white background for maximum visibility:**
+```
+bg-white text-primary hover:bg-white/90 border-2 border-white
+```
 
-**File to modify:** `src/components/landing/PricingSection.tsx`
+This creates a prominent white button with blue text that stands out against the hero image.
+
+#### Final CTA Section - "Talk to Course Advisor" Button
+**Current styling:**
+```
+border-2 border-white bg-white/20 text-white hover:bg-white/30
+```
+
+**New styling - green WhatsApp-style button for high visibility:**
+```
+bg-success text-success-foreground hover:bg-success/90 border-0
+```
+
+This makes the WhatsApp button unmistakably visible with the brand's success green color.
+
+### Files to Modify
+- `src/components/landing/HeroSection.tsx` (line 97-104)
+- `src/components/landing/FinalCTA.tsx` (lines 57-64)
 
 ---
 
-## 2. Course Timeline - Rescue Diver + EFR Update
+## 2. Em-Dash Removal
 
-### Current State
-Phase 3 shows:
-- Title: "Rescue Diver"
-- Duration: "3-4 days"
-- Description: "Emergency response & problem-solving underwater"
+### Found Instances
+Only **one em-dash** was found in the codebase:
 
-### Changes Based on PDF Document
-The PDF clearly separates:
-- **EFR (Emergency First Response)**: 1 Day
-- **Rescue Diver**: 3-4 Days
+| File | Line | Current Text |
+|------|------|--------------|
+| `CareerDestinations.tsx` | Line 62 | "We don't just train you**—**we help launch your career..." |
 
-### Option A (Client preferred): Combine in one phase
-Update Phase 3 to show:
-- Title: "Rescue Diver + EFR"
-- Duration: "4-5 days" (3-4 days Rescue + 1 day EFR)
-- Description: "Emergency First Response training + underwater rescue skills and problem-solving"
-
-### Option B: Mention separately
-- Title: "Rescue Diver"
-- Duration: "3-4 days + 1 day EFR"
-- Description: "1-day Emergency First Response (EFR) training + 3-4 days underwater rescue & emergency management"
-
-I'll implement Option A as it's cleaner while still showing the 4-5 day total.
-
-**File to modify:** `src/components/landing/CourseTimeline.tsx`
-
----
-
-## Technical Implementation Details
-
-### PricingSection.tsx Changes
-
-```text
-Updated plans array structure:
-{
-  name: "One-Time Payment",
-  originalPrice: "₹2,50,000",  // New field for strikethrough
-  total: "₹2,36,000",
-  structure: "Pay in full",
-  popular: false,
-  savings: "Best Value",
-  gstNote: "incl. GST",
-}
+### Proposed Change
+Replace em-dash with comma:
+```
+"We don't just train you, we help launch your career..."
 ```
 
-Add strikethrough styling:
-```text
-{plan.originalPrice && (
-  <p className="text-lg text-muted-foreground line-through">
-    {plan.originalPrice}
-  </p>
-)}
-<p className="font-display text-3xl font-bold text-primary">
-  {plan.total}
-</p>
-```
-
-### CourseTimeline.tsx Changes
-
-Update Phase 3 object:
-```text
-{
-  phase: 3,
-  title: "Rescue Diver + EFR",
-  duration: "4-5 days",
-  description: "1-day Emergency First Response (EFR) + 3-4 days underwater rescue & emergency management skills",
-  color: "bg-primary/60",
-  image: phaseRescue,
-}
-```
+### File to Modify
+- `src/components/landing/CareerDestinations.tsx` (line 62)
 
 ---
 
@@ -113,11 +72,25 @@ Update Phase 3 object:
 
 | Component | Change |
 |-----------|--------|
-| PricingSection.tsx | Add strikethrough ₹2,50,000, update all prices per PDF, change all plans to "incl. GST" |
-| CourseTimeline.tsx | Update Phase 3 to include EFR with updated duration (4-5 days) |
+| HeroSection.tsx | Update "Explore Zero to Hero Program" button to solid white with blue text |
+| FinalCTA.tsx | Update "Talk to Course Advisor" button to solid green (success color) |
+| CareerDestinations.tsx | Replace em-dash with comma in placement guarantee text |
 
 ---
 
-## Files to Modify
-1. `src/components/landing/PricingSection.tsx`
-2. `src/components/landing/CourseTimeline.tsx`
+## Visual Preview
+
+### Before vs After - Hero Button
+
+| State | Styling |
+|-------|---------|
+| Before | Semi-transparent white background (`bg-white/20`), hard to read |
+| After | Solid white background with blue text, highly visible |
+
+### Before vs After - Final CTA Button
+
+| State | Styling |
+|-------|---------|
+| Before | Semi-transparent white background, blends into image |
+| After | Solid green (WhatsApp color), immediately recognizable |
+
