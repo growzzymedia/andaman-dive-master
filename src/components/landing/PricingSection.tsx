@@ -5,35 +5,39 @@ const PricingSection = () => {
   const plans = [
     {
       name: "One-Time Payment",
+      originalPrice: "₹2,50,000",
       total: "₹2,36,000",
-      structure: "Pay in full (incl. 18% GST)",
+      structure: "Pay in full",
       popular: false,
       savings: "Best Value",
       gstNote: "incl. GST",
     },
     {
       name: "2 Months Plan",
-      total: "₹2,20,000",
-      structure: "₹1,10,000 × 2 installments",
+      originalPrice: null,
+      total: "₹2,75,000",
+      structure: "₹1,37,500 × 2 installments",
       popular: true,
       savings: null,
-      gstNote: "excl. GST",
+      gstNote: "incl. GST",
     },
     {
       name: "3 Months Plan",
-      total: "₹2,40,000",
-      structure: "₹80,000 × 3 installments",
+      originalPrice: null,
+      total: "₹3,00,000",
+      structure: "₹1,00,000 × 3 installments",
       popular: false,
       savings: null,
-      gstNote: "excl. GST",
+      gstNote: "incl. GST",
     },
     {
       name: "6 Months Plan",
-      total: "₹2,70,000",
-      structure: "₹45,000 × 6 installments",
+      originalPrice: null,
+      total: "₹3,36,000",
+      structure: "₹56,000 × 6 installments",
       popular: false,
       savings: "Most Flexible",
-      gstNote: "excl. GST",
+      gstNote: "incl. GST",
     },
   ];
 
@@ -83,7 +87,10 @@ const PricingSection = () => {
               )}
               
               <h3 className="font-display text-lg font-bold text-foreground mb-2 mt-2">{plan.name}</h3>
-              <p className="font-display text-3xl font-bold text-primary mb-1">{plan.total}</p>
+              {plan.originalPrice && (
+                <p className="text-lg text-muted-foreground line-through">{plan.originalPrice}</p>
+              )}
+              <p className={`font-display text-3xl font-bold mb-1 ${plan.originalPrice ? "text-success" : "text-primary"}`}>{plan.total}</p>
               <p className="text-xs text-muted-foreground mb-1">({plan.gstNote})</p>
               <p className="text-sm text-muted-foreground mb-4">{plan.structure}</p>
               
@@ -113,7 +120,7 @@ const PricingSection = () => {
             ))}
           </div>
           <p className="text-center text-sm text-muted-foreground mt-6">
-            <strong>One-time payment:</strong> ₹2,36,000 (incl. 18% GST) | <strong>EMI plans:</strong> Prices shown + 18% GST applicable
+            All prices shown include 18% GST
           </p>
         </div>
       </div>
