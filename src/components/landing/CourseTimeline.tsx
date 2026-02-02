@@ -24,9 +24,9 @@ const CourseTimeline = () => {
     },
     {
       phase: 3,
-      title: "Rescue Diver",
-      duration: "3-4 days",
-      description: "Emergency response & problem-solving underwater",
+      title: "Rescue Diver + EFR",
+      duration: "4-5 days",
+      description: "1-day Emergency First Response (EFR) + 3-4 days underwater rescue & emergency management skills",
       color: "bg-primary/60",
       image: phaseRescue,
     },
