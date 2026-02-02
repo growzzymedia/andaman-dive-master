@@ -98,7 +98,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg"
               onClick={scrollToProgram}
-              className="border-2 border-white bg-white/20 text-white hover:bg-white/30 font-display font-bold px-8 py-6 rounded-full backdrop-blur-sm shadow-lg"
+              className="bg-white text-primary hover:bg-white/90 border-2 border-white font-display font-bold px-8 py-6 rounded-full shadow-lg"
             >
               Explore Zero to Hero Program
             </Button>
