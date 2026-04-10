@@ -27,11 +27,16 @@ const HeroSection = () => {
 
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Scuba diver underwater in crystal clear ocean"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImage}
           className="w-full h-full object-cover"
-        />
+        >
+          <source src="https://pro-cms.padi.com/sites/default/files/documents/marketing-hub/Lead%20Adventure%20Video_ENGLISH.mp4" type="video/mp4" />
+        </video>
         <div 
           className="absolute inset-0"
           style={{
