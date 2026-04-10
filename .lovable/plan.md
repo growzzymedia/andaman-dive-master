@@ -1,96 +1,32 @@
 
 
-# Button Visibility & Em-Dash Removal Updates
+# Fix Hero Background Video and Countdown Timer
 
 ## Overview
-This plan addresses two issues: (1) making the transparent buttons more visible and clickable, and (2) removing em-dashes from all page content.
+Two issues to fix:
+1. The hero section uses a static image instead of a video background. The official ScubaDiveIn website uses a PADI video.
+2. The countdown timer shows all zeros because the target date (Feb 15, 2026) has already passed (current date is April 10, 2026).
 
----
+## Changes
 
-## 1. Button Visibility Improvements
+### 1. Replace static image with video background (`HeroSection.tsx`)
 
-### Current Issues
-The following buttons are too transparent and hard to read:
-- **"Explore Zero to Hero Program"** button in Hero section
-- **"Talk to Course Advisor"** button in Final CTA section
+Replace the `<img>` tag in the background section with a `<video>` element using the same video from the official site:
 
-### Proposed Changes
+- **Video URL**: `https://pro-cms.padi.com/sites/default/files/documents/marketing-hub/Lead%20Adventure%20Video_ENGLISH.mp4`
+- Attributes: `autoPlay`, `muted`, `loop`, `playsInline` for seamless background playback
+- Keep the existing gradient overlay on top of the video
+- Keep the static image as a `poster` fallback while the video loads
+- Remove the `heroImage` import (no longer needed as primary background, but keep as poster)
 
-#### Hero Section - "Explore Zero to Hero Program" Button
-**Current styling:**
-```
-border-2 border-white bg-white/20 text-white hover:bg-white/30
-```
+### 2. Fix Countdown Timer (`CountdownTimer.tsx`)
 
-**New styling - solid white background for maximum visibility:**
-```
-bg-white text-primary hover:bg-white/90 border-2 border-white
-```
+The target date of `2026-02-15` is in the past. Update to a future date:
+- Change target to **July 1, 2026** (next realistic batch start)
+- Update the text from "February batch" to "July batch"
+- This ensures the timer actually counts down instead of showing all zeros
 
-This creates a prominent white button with blue text that stands out against the hero image.
-
-#### Final CTA Section - "Talk to Course Advisor" Button
-**Current styling:**
-```
-border-2 border-white bg-white/20 text-white hover:bg-white/30
-```
-
-**New styling - green WhatsApp-style button for high visibility:**
-```
-bg-success text-success-foreground hover:bg-success/90 border-0
-```
-
-This makes the WhatsApp button unmistakably visible with the brand's success green color.
-
-### Files to Modify
-- `src/components/landing/HeroSection.tsx` (line 97-104)
-- `src/components/landing/FinalCTA.tsx` (lines 57-64)
-
----
-
-## 2. Em-Dash Removal
-
-### Found Instances
-Only **one em-dash** was found in the codebase:
-
-| File | Line | Current Text |
-|------|------|--------------|
-| `CareerDestinations.tsx` | Line 62 | "We don't just train you**—**we help launch your career..." |
-
-### Proposed Change
-Replace em-dash with comma:
-```
-"We don't just train you, we help launch your career..."
-```
-
-### File to Modify
-- `src/components/landing/CareerDestinations.tsx` (line 62)
-
----
-
-## Summary of Changes
-
-| Component | Change |
-|-----------|--------|
-| HeroSection.tsx | Update "Explore Zero to Hero Program" button to solid white with blue text |
-| FinalCTA.tsx | Update "Talk to Course Advisor" button to solid green (success color) |
-| CareerDestinations.tsx | Replace em-dash with comma in placement guarantee text |
-
----
-
-## Visual Preview
-
-### Before vs After - Hero Button
-
-| State | Styling |
-|-------|---------|
-| Before | Semi-transparent white background (`bg-white/20`), hard to read |
-| After | Solid white background with blue text, highly visible |
-
-### Before vs After - Final CTA Button
-
-| State | Styling |
-|-------|---------|
-| Before | Semi-transparent white background, blends into image |
-| After | Solid green (WhatsApp color), immediately recognizable |
+## Files to Modify
+1. `src/components/landing/HeroSection.tsx` - Replace `<img>` with `<video>` in background
+2. `src/components/landing/CountdownTimer.tsx` - Update target date to future date
 
