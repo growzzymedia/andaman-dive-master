@@ -3,7 +3,7 @@ import { Clock, Users } from "lucide-react";
 
 const CountdownTimer = () => {
   // Set target date to February 15, 2026 (next batch start)
-  const targetDate = new Date("2026-02-15T09:00:00");
+  const targetDate = new Date("2026-07-01T09:00:00");
   
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -63,7 +63,7 @@ const CountdownTimer = () => {
 
       <div className="flex items-center justify-center gap-2 mt-4 text-white/80 text-sm">
         <Users className="w-4 h-4" />
-        <span><strong className="text-white">Only 8 spots</strong> remaining for February batch</span>
+        <span><strong className="text-white">Only 8 spots</strong> remaining for July batch</span>
       </div>
     </div>
   );
