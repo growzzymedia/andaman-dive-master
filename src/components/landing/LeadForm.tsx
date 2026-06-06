@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/select";
 import { CheckCircle, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -52,17 +53,25 @@ const LeadForm = () => {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    
-    // Simulate submission delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log("Form submitted:", data);
-    
+
+    const { error } = await supabase.functions.invoke("submit-lead", { body: data });
+
+    if (error) {
+      console.error("Lead submission failed:", error);
+      toast({
+        title: "Submission failed",
+        description: "Please try again or WhatsApp us directly.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     toast({
       title: "Application Received!",
       description: "Our team will contact you within 24 hours.",
     });
-    
+
     setIsSubmitted(true);
     setIsSubmitting(false);
   };
