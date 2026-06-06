@@ -59,7 +59,7 @@ const HeroSection = () => {
           <div className="mb-6 animate-fade-in">
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-400 text-black px-6 py-3 rounded-full shadow-lg">
               <Award className="w-6 h-6" />
-              <span className="font-display font-bold text-lg md:text-xl tracking-wide">PADI 5-Star Dive Center</span>
+              <span className="font-display font-bold text-lg md:text-xl tracking-wide">PADI 5-Star Dive Resort</span>
               <Award className="w-6 h-6" />
             </div>
           </div>
@@ -81,7 +81,7 @@ const HeroSection = () => {
             Become a PADI Certified{" "}
             <span className="text-accent">Divemaster</span>
             <br />
-            in 45 Days
+            in 60-90 Days
           </h1>
 
           {/* Sub-headline */}

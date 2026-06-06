@@ -1,32 +1,38 @@
+# Plan: Copy Updates + Replace AI Photos with Real Uploads (Hero Video Kept)
 
+## 1. Copy updates
+- **HeroSection.tsx**: "PADI 5-Star Dive Center" → "PADI 5-Star Dive Resort"; "in 45 Days" → "in 60-90 Days". Hero video stays untouched.
+- **Footer.tsx**: "PADI 5-Star Dive Center #S-12345" → "PADI 5-Star Dive Resort #S-12345"
+- **CourseTimeline.tsx**: Duration "45 Days (6-10 weeks)" → "60-90 Days"; subtitle "in just 45 days" → "in 60-90 days"
+- **FinalCTA.tsx**: "just 45 days away" → "just 60-90 days away"
 
-# Fix Hero Background Video and Countdown Timer
+## 2. Replace AI photos with the 6 uploaded real photos
+Upload each via `lovable-assets` (CDN-hosted, kept out of the repo), import the resulting `.asset.json` pointers, then swap usages. Hero `<video>` and its poster are NOT changed.
 
-## Overview
-Two issues to fix:
-1. The hero section uses a static image instead of a video background. The official ScubaDiveIn website uses a PADI video.
-2. The countdown timer shows all zeros because the target date (Feb 15, 2026) has already passed (current date is April 10, 2026).
+| Slot | Component | Uploaded photo |
+|---|---|---|
+| Gallery – Expert Training | ImageGallery.tsx | image.png (rope skills circle) |
+| Gallery – Paradise Location | ImageGallery.tsx | Screenshot (wide reef + diver) |
+| Gallery – Stunning Dive Sites | ImageGallery.tsx | image-5.png (soft coral reef) |
+| Gallery – World-Class Instructors | ImageGallery.tsx | image-4.png (instructor with slate) |
+| Phase 1 – Open Water | CourseTimeline.tsx | image-2.png (group thumbs-up) |
+| Phase 2 – Advanced | CourseTimeline.tsx | Screenshot (deep reef diver) |
+| Phase 3 – Rescue / EFR | CourseTimeline.tsx | image-3.png (rope ascent) |
+| Phase 4 – Divemaster | CourseTimeline.tsx | image-4.png (leading divers, slate) |
+| Final CTA background | FinalCTA.tsx | image-5.png (vibrant reef) |
 
-## Changes
+After wiring, delete the now-unused AI files from `src/assets/`: `gallery-training.jpg`, `gallery-andaman.jpg`, `gallery-underwater.jpg`, `gallery-instructors.jpg`, `phase-openwater.jpg`, `phase-advanced.jpg`, `phase-rescue.jpg`, `phase-divemaster.jpg`, `cta-underwater.jpg`. Keep `hero-diving.jpg` (still used as the video poster).
 
-### 1. Replace static image with video background (`HeroSection.tsx`)
+## Kept as-is
+- Hero video + poster
+- Destination country thumbnails (`dest-*.jpg`)
+- Testimonial portraits (`testimonial-*.jpg`)
+- Logos
 
-Replace the `<img>` tag in the background section with a `<video>` element using the same video from the official site:
-
-- **Video URL**: `https://pro-cms.padi.com/sites/default/files/documents/marketing-hub/Lead%20Adventure%20Video_ENGLISH.mp4`
-- Attributes: `autoPlay`, `muted`, `loop`, `playsInline` for seamless background playback
-- Keep the existing gradient overlay on top of the video
-- Keep the static image as a `poster` fallback while the video loads
-- Remove the `heroImage` import (no longer needed as primary background, but keep as poster)
-
-### 2. Fix Countdown Timer (`CountdownTimer.tsx`)
-
-The target date of `2026-02-15` is in the past. Update to a future date:
-- Change target to **July 1, 2026** (next realistic batch start)
-- Update the text from "February batch" to "July batch"
-- This ensures the timer actually counts down instead of showing all zeros
-
-## Files to Modify
-1. `src/components/landing/HeroSection.tsx` - Replace `<img>` with `<video>` in background
-2. `src/components/landing/CountdownTimer.tsx` - Update target date to future date
-
+## Files to modify
+1. `src/components/landing/HeroSection.tsx`
+2. `src/components/landing/Footer.tsx`
+3. `src/components/landing/CourseTimeline.tsx`
+4. `src/components/landing/FinalCTA.tsx`
+5. `src/components/landing/ImageGallery.tsx`
+6. `src/assets/` — add 6 new `.asset.json` pointers, remove 9 old AI `.jpg` files
