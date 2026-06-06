@@ -1,27 +1,27 @@
-import galleryTraining from "@/assets/gallery-training.jpg";
-import galleryAndaman from "@/assets/gallery-andaman.jpg";
-import galleryUnderwater from "@/assets/gallery-underwater.jpg";
-import galleryInstructors from "@/assets/gallery-instructors.jpg";
+import galleryTrainingAsset from "@/assets/real-divers-rope.jpg.asset.json";
+import galleryAndamanAsset from "@/assets/real-reef-diver.jpg.asset.json";
+import galleryUnderwaterAsset from "@/assets/real-soft-coral.jpg.asset.json";
+import galleryInstructorsAsset from "@/assets/real-instructor-slate.jpg.asset.json";
 
 const ImageGallery = () => {
   const images = [
     {
-      src: galleryTraining,
+      src: galleryTrainingAsset.url,
       alt: "Scuba diving training session in crystal clear water",
       title: "Expert Training",
     },
     {
-      src: galleryAndaman,
-      alt: "Beautiful Havelock Island beach in Andaman",
+      src: galleryAndamanAsset.url,
+      alt: "Diver exploring Andaman reef",
       title: "Paradise Location",
     },
     {
-      src: galleryUnderwater,
+      src: galleryUnderwaterAsset.url,
       alt: "Colorful coral reef with marine life",
       title: "Stunning Dive Sites",
     },
     {
-      src: galleryInstructors,
+      src: galleryInstructorsAsset.url,
       alt: "Professional dive instructor team",
       title: "World-Class Instructors",
     },

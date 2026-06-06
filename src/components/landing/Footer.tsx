@@ -62,7 +62,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 text-center text-sm text-secondary-foreground/50">
-          <p>© 2025 ScubaDiveIn. All rights reserved. PADI 5-Star Dive Center #S-12345</p>
+          <p>© 2025 ScubaDiveIn. All rights reserved. PADI 5-Star Dive Resort #S-12345</p>
         </div>
       </div>
     </footer>

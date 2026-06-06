@@ -1,8 +1,12 @@
 import { Clock, GraduationCap, MapPin, Globe, Waves } from "lucide-react";
-import phaseOpenwater from "@/assets/phase-openwater.jpg";
-import phaseAdvanced from "@/assets/phase-advanced.jpg";
-import phaseRescue from "@/assets/phase-rescue.jpg";
-import phaseDivemaster from "@/assets/phase-divemaster.jpg";
+import phaseOpenwaterAsset from "@/assets/real-group-thumbsup.jpg.asset.json";
+import phaseAdvancedAsset from "@/assets/real-reef-diver.jpg.asset.json";
+import phaseRescueAsset from "@/assets/real-rope-ascent.jpg.asset.json";
+import phaseDivemasterAsset from "@/assets/real-instructor-slate.jpg.asset.json";
+const phaseOpenwater = phaseOpenwaterAsset.url;
+const phaseAdvanced = phaseAdvancedAsset.url;
+const phaseRescue = phaseRescueAsset.url;
+const phaseDivemaster = phaseDivemasterAsset.url;
 
 const CourseTimeline = () => {
   const phases = [
@@ -41,7 +45,7 @@ const CourseTimeline = () => {
   ];
 
   const highlights = [
-    { icon: Clock, label: "Duration", value: "45 Days (6-10 weeks)" },
+    { icon: Clock, label: "Duration", value: "60-90 Days" },
     { icon: GraduationCap, label: "Eligibility", value: "18+ years, basic swimming" },
     { icon: MapPin, label: "Location", value: "Havelock Island, Andaman" },
     { icon: Globe, label: "Language", value: "English" },
@@ -56,7 +60,7 @@ const CourseTimeline = () => {
             Your <span className="text-primary">Zero to Hero</span> Journey
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Transform from a complete beginner to a certified PADI Divemaster in just 45 days
+            Transform from a complete beginner to a certified PADI Divemaster in 60-90 days
           </p>
         </div>
 

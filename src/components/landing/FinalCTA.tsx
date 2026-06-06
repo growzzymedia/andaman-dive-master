@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowRight } from "lucide-react";
-import ctaImage from "@/assets/cta-underwater.jpg";
+import ctaImageAsset from "@/assets/real-soft-coral.jpg.asset.json";
+const ctaImage = ctaImageAsset.url;
 
 const FinalCTA = () => {
   const scrollToForm = () => {
@@ -37,7 +38,7 @@ const FinalCTA = () => {
               Ready to Transform Your Life?
             </h2>
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Join 500+ successful divemasters who started their journey with us. Your dream career is just 45 days away.
+              Join 500+ successful divemasters who started their journey with us. Your dream career is just 60-90 days away.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
