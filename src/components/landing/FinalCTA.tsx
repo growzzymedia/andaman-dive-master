@@ -51,7 +51,7 @@ const FinalCTA = () => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <a 
-                href="https://wa.me/919876543210?text=Hi%2C%20I'm%20interested%20in%20the%20Divemaster%20course"
+                href="https://wa.me/918951099693?text=Hi%2C%20I'm%20interested%20in%20the%20Divemaster%20course"
                 target="_blank"
                 rel="noopener noreferrer"
               >
