@@ -1,38 +1,47 @@
-# Plan: Copy Updates + Replace AI Photos with Real Uploads (Hero Video Kept)
+## Changes
 
-## 1. Copy updates
-- **HeroSection.tsx**: "PADI 5-Star Dive Center" → "PADI 5-Star Dive Resort"; "in 45 Days" → "in 60-90 Days". Hero video stays untouched.
-- **Footer.tsx**: "PADI 5-Star Dive Center #S-12345" → "PADI 5-Star Dive Resort #S-12345"
-- **CourseTimeline.tsx**: Duration "45 Days (6-10 weeks)" → "60-90 Days"; subtitle "in just 45 days" → "in 60-90 days"
-- **FinalCTA.tsx**: "just 45 days away" → "just 60-90 days away"
+### A. Pricing (PricingSection.tsx)
+Update the four plans:
+1. One-Time Payment: ₹3,50,000 (remove strike-through original price, keep "Best Value" badge)
+2. 2 Months Plan: ₹3,80,000 (₹1,90,000 × 2)
+3. 3 Months Plan: ₹4,20,000 (₹1,40,000 × 3)
+4. 6 Months Plan: ₹4,80,000 (₹80,000 × 6)
 
-## 2. Replace AI photos with the 6 uploaded real photos
-Upload each via `lovable-assets` (CDN-hosted, kept out of the repo), import the resulting `.asset.json` pointers, then swap usages. Hero `<video>` and its poster are NOT changed.
+All keep "incl. GST" note.
 
-| Slot | Component | Uploaded photo |
-|---|---|---|
-| Gallery – Expert Training | ImageGallery.tsx | image.png (rope skills circle) |
-| Gallery – Paradise Location | ImageGallery.tsx | Screenshot (wide reef + diver) |
-| Gallery – Stunning Dive Sites | ImageGallery.tsx | image-5.png (soft coral reef) |
-| Gallery – World-Class Instructors | ImageGallery.tsx | image-4.png (instructor with slate) |
-| Phase 1 – Open Water | CourseTimeline.tsx | image-2.png (group thumbs-up) |
-| Phase 2 – Advanced | CourseTimeline.tsx | Screenshot (deep reef diver) |
-| Phase 3 – Rescue / EFR | CourseTimeline.tsx | image-3.png (rope ascent) |
-| Phase 4 – Divemaster | CourseTimeline.tsx | image-4.png (leading divers, slate) |
-| Final CTA background | FinalCTA.tsx | image-5.png (vibrant reef) |
+### B. Phone number → +91 89510 99693
+Replace `+919876543210` / `+91 98765 43210` everywhere it appears:
+- HeroSection, FinalCTA, StickyMobileCTA (WhatsApp links)
+- Footer (tel link + display)
+- Any other component using the old number
 
-After wiring, delete the now-unused AI files from `src/assets/`: `gallery-training.jpg`, `gallery-andaman.jpg`, `gallery-underwater.jpg`, `gallery-instructors.jpg`, `phase-openwater.jpg`, `phase-advanced.jpg`, `phase-rescue.jpg`, `phase-divemaster.jpg`, `cta-underwater.jpg`. Keep `hero-diving.jpg` (still used as the video poster).
+### C. Email + Social links (Footer.tsx)
+- Email: `info@scubadivein.com` → `scubadivein1@gmail.com` (update both display and `mailto:` link)
+- Instagram `href="#"` → `https://www.instagram.com/scuba_dive_in/`
+- Facebook `href="#"` → `https://www.facebook.com/scubadivein.2025`
+- YouTube: leave as `#` (no link provided) or remove the icon — confirm in question below
 
-## Kept as-is
-- Hero video + poster
-- Destination country thumbnails (`dest-*.jpg`)
-- Testimonial portraits (`testimonial-*.jpg`)
-- Logos
+### D. Qualification copy (QualificationSection.tsx)
+Change line 4 of "This is for you if…" from:
+> "You dream of working in Maldives, Thailand, or Bali"
 
-## Files to modify
-1. `src/components/landing/HeroSection.tsx`
-2. `src/components/landing/Footer.tsx`
-3. `src/components/landing/CourseTimeline.tsx`
-4. `src/components/landing/FinalCTA.tsx`
-5. `src/components/landing/ImageGallery.tsx`
-6. `src/assets/` — add 6 new `.asset.json` pointers, remove 9 old AI `.jpg` files
+to:
+> "You dream of working in Maldives, India, Thailand, Bali and many more"
+
+### E. Testimonials (TestimonialsSection.tsx)
+Replace the 3 AI-written testimonials with 3 real Google reviews from ScubaDiveIn's Google Business profile. Google blocked our automated fetch of the reviews page, so I need the review text from you (see question below). Once provided, I will:
+- Replace name, quote, and "before/role" lines with real reviewer details
+- Remove the AI-generated reviewer headshots (`testimonial-rahul/priya/arjun.jpg`) and replace with neutral initials avatars (circle with first letter) so we are not faking faces
+
+## Open question
+I need you to either paste 3 of your best Google reviews (reviewer name + review text), or paste the direct Google Maps/Business URL for ScubaDiveIn so I can fetch them. The link you shared was a search results page that requires CAPTCHA. Once I have the text I will wire them in.
+
+## Files touched
+- `src/components/landing/PricingSection.tsx`
+- `src/components/landing/Footer.tsx`
+- `src/components/landing/HeroSection.tsx`
+- `src/components/landing/FinalCTA.tsx`
+- `src/components/landing/StickyMobileCTA.tsx`
+- `src/components/landing/QualificationSection.tsx`
+- `src/components/landing/TestimonialsSection.tsx`
+- delete `src/assets/testimonial-*.jpg` after testimonials are replaced
