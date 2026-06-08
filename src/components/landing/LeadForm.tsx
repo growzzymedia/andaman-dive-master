@@ -121,8 +121,8 @@ const LeadForm = () => {
               </p>
               <p className="text-sm text-muted-foreground">
                 Can't wait? WhatsApp us directly at{" "}
-                <a href="https://wa.me/919876543210" className="text-primary font-semibold hover:underline">
-                  +91 98765 43210
+                <a href="https://wa.me/918951099693" className="text-primary font-semibold hover:underline">
+                  +91 89510 99693
                 </a>
               </p>
             </div>
@@ -170,7 +170,7 @@ const LeadForm = () => {
                       <FormItem>
                         <FormLabel>Phone Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="+91 98765 43210" {...field} />
+                          <Input placeholder="+91 89510 99693" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

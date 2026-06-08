@@ -5,7 +5,7 @@ const QualificationSection = () => {
     "You want a career that lets you travel the world",
     "You're ready to commit 6-10 weeks of intensive training",
     "You're at least 18 years old and physically fit",
-    "You dream of working in Maldives, Thailand, or Bali",
+    "You dream of working in Maldives, India, Thailand, Bali and many more",
   ];
 
   const notForYou = [

@@ -5,8 +5,8 @@ const PricingSection = () => {
   const plans = [
     {
       name: "One-Time Payment",
-      originalPrice: "₹2,50,000",
-      total: "₹2,36,000",
+      originalPrice: null,
+      total: "₹3,50,000",
       structure: "Pay in full",
       popular: false,
       savings: "Best Value",
@@ -15,8 +15,8 @@ const PricingSection = () => {
     {
       name: "2 Months Plan",
       originalPrice: null,
-      total: "₹2,75,000",
-      structure: "₹1,37,500 × 2 installments",
+      total: "₹3,80,000",
+      structure: "₹1,90,000 × 2 installments",
       popular: true,
       savings: null,
       gstNote: "incl. GST",
@@ -24,8 +24,8 @@ const PricingSection = () => {
     {
       name: "3 Months Plan",
       originalPrice: null,
-      total: "₹3,00,000",
-      structure: "₹1,00,000 × 3 installments",
+      total: "₹4,20,000",
+      structure: "₹1,40,000 × 3 installments",
       popular: false,
       savings: null,
       gstNote: "incl. GST",
@@ -33,8 +33,8 @@ const PricingSection = () => {
     {
       name: "6 Months Plan",
       originalPrice: null,
-      total: "₹3,36,000",
-      structure: "₹56,000 × 6 installments",
+      total: "₹4,80,000",
+      structure: "₹80,000 × 6 installments",
       popular: false,
       savings: "Most Flexible",
       gstNote: "incl. GST",
